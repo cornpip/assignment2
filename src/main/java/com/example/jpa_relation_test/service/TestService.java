@@ -28,6 +28,7 @@ public class TestService {
 
     @Transactional
     public MemberResponseDto signup(Member member) {
+        System.out.println(member);
         Member save = memberRepository.save(member);
         return new MemberResponseDto(save);
     }
@@ -63,16 +64,11 @@ public class TestService {
 
     public List<BookStore> findAllBookStore() {
         List<BookStore> all = bookStoreRepository.findAll();
-//        List<Book> bookList = all.get(0).getBookList();
-//        System.out.println(bookList);
         return all;
     }
 
     public List<BookDto.Response> findAllBook() {
         List<Book> all = bookRepository.findAll();
-        BookDto.Response response = new BookDto.Response(all.get(0));
-        System.out.println(response);
         return all.stream().map(BookDto.Response::new).collect(Collectors.toList());
-//        return null;
     }
 }

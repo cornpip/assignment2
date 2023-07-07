@@ -28,6 +28,10 @@ public class BookStore {
     @JsonBackReference
     private List<Book> bookList = new ArrayList<>();
 
+    @OneToMany(mappedBy = "bookStore")
+    @JsonBackReference
+    private List<Member> member = new ArrayList<>();
+
     public void addBook(Book book){
         this.bookList.add(book);
     }

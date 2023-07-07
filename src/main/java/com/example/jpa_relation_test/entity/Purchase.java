@@ -1,5 +1,6 @@
 package com.example.jpa_relation_test.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.ToString;
 
@@ -14,6 +15,7 @@ public class Purchase {
     private Long id;
 
     @ManyToOne
+    @JsonManagedReference
     private Member member;
 
     @ManyToOne
